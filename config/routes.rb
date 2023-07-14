@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   to: 'fallback#index',
   constraints: ->(req) { !req.xhr? && req.format.html? }
 
+  post '/login', to: "sessions#create"
 
 
   

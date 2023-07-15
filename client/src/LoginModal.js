@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
-function LoginModal({currentUser, setCurrentUser}) {
+function LoginModal({setCurrentUser}) {
 
     // modal ↓
     const [show, setShow] = useState(false);

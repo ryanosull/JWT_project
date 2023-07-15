@@ -22,26 +22,8 @@ function App() {
 		console.log("User not found")
 	}, []);
 
-	// fetch('/login', {
-    // method: 'POST',
-    // headers: {
-	// 	'Content-Type': 'application/json',
-	// 	Accept: 'application/json'
-    // },
-    // body: JSON.stringify({
-	// 	email: 'satoshi@nakamoto.com',
-	// 	password: 'Satoshi123!'
-    // })
-	// })
-	// .then(resp => resp.json())
-	// .then(user => {
-	// 	if (!user.errors) {
-	// 		localStorage.uid = user.uid
-	// 		setCurrentUser(user.id)
-	// 	} else user.errors.forEach(error => (window.alert(error)))
-	// }); 
 
-	console.log(currentUser)
+	console.log(currentUser)     //leaving this here - you should take it out when no longer neeeded!
 
 	return (
     <div className="App">        
@@ -56,7 +38,7 @@ function App() {
         >
 			Learn React
         </a>
-        <LoginModal setCurrentUser={setCurrentUser} currentUser={currentUser} />
+        <LoginModal setCurrentUser={setCurrentUser}/>
 		</header>
     </div>
 	);

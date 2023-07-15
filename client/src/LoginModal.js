@@ -13,12 +13,12 @@ function LoginModal() {
     return (
 
     <div> 
-        <Button variant="primary" onClick={handleShow}> Click to Login</Button>
+        <Button variant="primary" onClick={handleShow}>Log in</Button>
 
         <Modal show={show} onHide={handleClose}>
 
         <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>Enter your login info below.</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
@@ -46,7 +46,7 @@ function LoginModal() {
 
         <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>Close</Button>
-            <Button variant="primary" onClick={handleClose}>Save Changes</Button>
+            <Button variant="primary" onClick={handleClose}>Log in</Button>
         </Modal.Footer>
 
         </Modal>

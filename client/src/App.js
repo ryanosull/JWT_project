@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import LoginModal from "./LoginModal";
+import LoginModal from "./LoginModal.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 

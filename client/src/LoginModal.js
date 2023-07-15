@@ -26,12 +26,12 @@ function LoginModal() {
             <Form>
 
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>Email address</Form.Label>
+                    <Form.Label>Email address:</Form.Label>
                     <Form.Control type="email"placeholder="name@example.com" autoFocus/>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label>Password:</Form.Label>
                     <Form.Control type="password" placeholder="password" />
                     <br/>
                     <Form.Text className="text-muted">

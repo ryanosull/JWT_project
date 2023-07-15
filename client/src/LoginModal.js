@@ -35,8 +35,7 @@ function LoginModal() {
                     <Form.Control type="password" placeholder="password" />
                     <br/>
                     <Form.Text className="text-muted">
-                        Password must be between 8 and 16 characters and contain at least one number (9), upper case letter (Z), lower case letter (a), and symbol (!).
-                        Passwords are case sensitive!
+                        Password must be between 8 and 16 characters and contain at least one number (9), upper case letter (Z), lower case letter (a), and symbol (!). Passwords are case sensitive!
                     </Form.Text>
                 </Form.Group>
 

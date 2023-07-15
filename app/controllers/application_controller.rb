@@ -9,7 +9,7 @@ class ApplicationController < ActionController::API
 
     def current_user
         auth_token = request.headers['auth-token'] #DO NOT use 'auth_token' - NO UNDERSCORE
-        if auth_token
+        if auth_token and auth_token != 'undefined'
             token = JWT.decode(auth_token, ENV['JWT_TOKEN'])[0] #pull first item from array
             return User.find_by(id: token['user'])
         else

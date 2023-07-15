@@ -6,6 +6,8 @@ import './App.css';
 
 function App() {
 
+  const [currentUser, setCurrentUser] = useState(null)
+
   useEffect( () => {
     if (localStorage.uid)
       console.log('User found:', localStorage.uid)
@@ -25,9 +27,12 @@ function App() {
     })
   })
   .then(resp => resp.json())
-  .then(user => localStorage.uid = user.uid);
+  .then(user => {
+    localStorage.uid = user.uid
+    setCurrentUser(user.id)
+  }); 
 
-
+  console.log(currentUser)
 
   return (
     <div className="App">

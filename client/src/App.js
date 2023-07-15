@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import LoginModal from "./LoginModal";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import LoginModal from "./LoginModal"
 
 
 

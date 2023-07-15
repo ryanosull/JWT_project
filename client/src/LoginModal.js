@@ -5,13 +5,21 @@ import Modal from 'react-bootstrap/Modal';
 
 function LoginModal() {
 
+    // modal ↓
     const [show, setShow] = useState(false);
 
-    const handleClose = () => setShow(false);
+    const handleClose = () => {
+        setShow(false)
+        setEmail("")       //clears out input field on modal close
+        setPassword("")    //clears out input field on modal close
+    };
+
     const handleShow = () => setShow(true);
+    // modal ↑
 
 
-
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
 
 
 
@@ -32,12 +40,14 @@ function LoginModal() {
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address:</Form.Label>
-                    <Form.Control type="email"placeholder="name@example.com" autoFocus/>
+                    <Form.Control onChange={(e) => setEmail(e.target.value)} name="email" value={email} 
+                    type="email"placeholder="name@example.com" autoFocus/>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password:</Form.Label>
-                    <Form.Control type="password" placeholder="password" />
+                    <Form.Control onChange={(e) => setPassword(e.target.value)} name="password" value={password} 
+                    type="password" placeholder="password" />
                     <br/>
                     <Form.Text className="text-muted">
                         Passwords must be between 8 and 16 characters and contain at least one number (9), upper case letter (Z), lower case letter (a), and symbol (!). Passwords are case sensitive!

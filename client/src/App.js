@@ -8,53 +8,52 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 
-  const [currentUser, setCurrentUser] = useState(null)
+	const [currentUser, setCurrentUser] = useState(null)
 
-  useEffect( () => {
+	useEffect( () => {
     if (localStorage.uid)
-      console.log('User found:', localStorage.uid)
+		console.log('User found:', localStorage.uid)
     else
-      console.log("User not found")
-  }, []);
+		console.log("User not found")
+	}, []);
 
-  fetch('/login', {
+	fetch('/login', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json'
+		'Content-Type': 'application/json',
+		Accept: 'application/json'
     },
     body: JSON.stringify({
-      email: 'satoshi@nakamoto.com',
-      password: 'Satoshi123!'
+		email: 'satoshi@nakamoto.com',
+		password: 'Satoshi123!'
     })
-  })
-  .then(resp => resp.json())
-  .then(user => {
-    localStorage.uid = user.uid
-    setCurrentUser(user.id)
-  }); 
+	})
 
-  console.log(currentUser)
+	.then(resp => resp.json())
+	.then(user => {
+		localStorage.uid = user.uid
+		setCurrentUser(user.id)
+	}); 
 
-  return (
+	console.log(currentUser)
+
+	return (
     <div className="App">        
-      <header className="App-header">
+		<header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        <p>Edit <code>src/App.js</code> and save to reload.</p>
         <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+			className="App-link"
+			href="https://reactjs.org"
+			target="_blank"
+			rel="noopener noreferrer"
         >
-          Learn React
+			Learn React
         </a>
         <LoginModal />
-      </header>
+		</header>
     </div>
-  );
+	);
 };
 
 export default App;

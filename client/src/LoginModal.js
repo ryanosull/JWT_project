@@ -13,7 +13,7 @@ function LoginModal({setCurrentUser}) {
         resetForm()       //resets form inputs when modal is closed
     }
 
-    const handleCloseLogin = () => setShow(false);  //to ensure that inputs are not reset prior to POST
+    const handleCloseOnLogin = () => setShow(false);  //to ensure that inputs are not reset prior to POST
 
     const handleShow = () => setShow(true);
     // modal ↑
@@ -91,7 +91,7 @@ function LoginModal({setCurrentUser}) {
 
                 <Modal.Footer>
                     <Button variant="secondary"  onClick={handleClose}>Close</Button>
-                    <Button variant="primary" type="submit" onClick={handleCloseLogin} >Log in</Button>
+                    <Button variant="primary" type="submit" onClick={handleCloseOnLogin} >Log in</Button>
                 </Modal.Footer>
 
             </Form>

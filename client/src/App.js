@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import LoginModal from "./LoginModal"
 
 
 
@@ -35,7 +37,7 @@ function App() {
   console.log(currentUser)
 
   return (
-    <div className="App">
+    <div className="App">        
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -49,6 +51,7 @@ function App() {
         >
           Learn React
         </a>
+        <LoginModal />
       </header>
     </div>
   );

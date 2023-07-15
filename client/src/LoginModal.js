@@ -3,16 +3,17 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
-function LoginModal() {
+function LoginModal({currentUser, setCurrentUser}) {
 
     // modal ↓
     const [show, setShow] = useState(false);
 
     const handleClose = () => {
         setShow(false)
-        setEmail("")       //clears out input field on modal close
-        setPassword("")    //clears out input field on modal close
-    };
+        resetForm()       //resets form inputs when modal is closed
+    }
+
+    const handleCloseLogin = () => setShow(false);  //to ensure that inputs are not reset prior to POST
 
     const handleShow = () => setShow(true);
     // modal ↑
@@ -21,6 +22,40 @@ function LoginModal() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
+    const resetForm = () => {
+        setEmail("")
+        setPassword("")
+    };
+
+    const handleLogin = (e) => {
+
+        e.preventDefault()
+
+        let loginInfo = {      //loginInfo object
+            email: email,
+            password: password,
+        };
+
+        setEmail("")     //reset of state
+        setPassword("")  //reset of state
+
+        fetch('/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json'
+            },
+            body: JSON.stringify(loginInfo)
+        })
+        .then(resp => resp.json())
+        .then(user => {
+            if (!user.errors) {
+                localStorage.uid = user.uid
+                setCurrentUser(user.id)
+                window.alert(`User # ${user.id} successfully logged in!`)
+            } else user.errors.forEach(error => (window.alert(error)))
+        }); 
+    };
 
 
     return (
@@ -36,7 +71,7 @@ function LoginModal() {
 
         <Modal.Body>
 
-            <Form onSubmit={ () => ""}>
+            <Form onSubmit={handleLogin}>
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address:</Form.Label>
@@ -54,14 +89,15 @@ function LoginModal() {
                     </Form.Text>
                 </Form.Group>
 
+                <Modal.Footer>
+                    <Button variant="secondary"  onClick={handleClose}>Close</Button>
+                    <Button variant="primary" type="submit" onClick={handleCloseLogin} >Log in</Button>
+                </Modal.Footer>
+
             </Form>
 
         </Modal.Body>
 
-        <Modal.Footer>
-            <Button variant="secondary"  onClick={handleClose}>Close</Button>
-            <Button variant="primary" type="submit" onClick={handleClose}>Log in</Button>
-        </Modal.Footer>
 
         </Modal>
     </div>

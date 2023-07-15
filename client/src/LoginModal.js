@@ -13,38 +13,41 @@ function LoginModal() {
     <div> 
         <Button variant="primary" onClick={handleShow}> Click to Login</Button>
 
-      <Modal show={show} onHide={handleClose}>
+        <Modal show={show} onHide={handleClose}>
 
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
 
-          <Form>
+            <Form>
 
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control type="email"placeholder="name@example.com"autoFocus/>
+                <Form.Label>Email address</Form.Label>
+                <Form.Control type="email"placeholder="name@example.com" autoFocus/>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-              <Form.Label>Example textarea</Form.Label>
-              <Form.Control as="textarea" rows={3} />
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" placeholder="password" />
+                <Form.Text className="text-muted">
+                    Password must be between 8 and 16 characters and contain at least one number, upper case letter, lower case letter, and symbol. Passwords are case sensitive!
+                </Form.Text>
             </Form.Group>
 
-          </Form>
+            </Form>
 
         </Modal.Body>
 
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>Close</Button>
-          <Button variant="primary" onClick={handleClose}>Save Changes</Button>
+            <Button variant="secondary" onClick={handleClose}>Close</Button>
+            <Button variant="primary" onClick={handleClose}>Save Changes</Button>
         </Modal.Footer>
 
-      </Modal>
+        </Modal>
     </div>
-  );
+    );
 };
 
 export default LoginModal;

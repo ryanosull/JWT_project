@@ -12,7 +12,12 @@ function App() {
 
 	useEffect( () => {
     if (localStorage.uid)
-		console.log('User found:', localStorage.uid)
+		fetch('/auto_login', {headers: {
+			'Content-Type': 'application/json',
+			'auth-token': localStorage.uid
+		} } )
+		.then(resp => resp.json())
+		.then(setCurrentUser)
     else
 		console.log("User not found")
 	}, []);

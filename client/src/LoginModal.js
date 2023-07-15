@@ -26,7 +26,7 @@ function LoginModal() {
     return (
 
     <div> 
-        <Button variant="primary" onClick={handleShow}>Log in</Button>
+        <Button variant="primary" onClick={handleShow} size="lg" >Log in</Button>
 
         <Modal show={show} onHide={handleClose}>
 
@@ -36,7 +36,7 @@ function LoginModal() {
 
         <Modal.Body>
 
-            <Form>
+            <Form onSubmit={ () => ""}>
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address:</Form.Label>
@@ -59,8 +59,8 @@ function LoginModal() {
         </Modal.Body>
 
         <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>Close</Button>
-            <Button variant="primary" onClick={handleClose}>Log in</Button>
+            <Button variant="secondary"  onClick={handleClose}>Close</Button>
+            <Button variant="primary" type="submit" onClick={handleClose}>Log in</Button>
         </Modal.Footer>
 
         </Modal>

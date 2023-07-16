@@ -38,7 +38,7 @@ function App() {
         >
 			Learn React
         </a>
-        <LoginModal setCurrentUser={setCurrentUser}/>
+        <LoginModal currentUser={currentUser} setCurrentUser={setCurrentUser}/>
 		</header>
     </div>
 	);

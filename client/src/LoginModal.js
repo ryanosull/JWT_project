@@ -3,12 +3,12 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
-function LoginModal({setCurrentUser}) {
+function LoginModal({currentUser, setCurrentUser}) {
 
     // modal ↓
     const [show, setShow] = useState(false);
 
-    const handleClose = () => {
+    const handleClose = () => {    //not for login
         setShow(false)
         resetForm()       //resets form inputs when modal is closed
     }
@@ -57,6 +57,7 @@ function LoginModal({setCurrentUser}) {
         }); 
     };
 
+    console.log('LM currentUser:', currentUser)
 
     return (
 

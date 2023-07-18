@@ -1,10 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import LoginModal from "./LoginModal";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
 function App() {
+
+  const [currentUser, setCurrentUser] = useState(null)
 
   useEffect( () => {
     if (localStorage.uid)
@@ -25,12 +29,15 @@ function App() {
     })
   })
   .then(resp => resp.json())
-  .then(user => localStorage.uid = user.uid);
+  .then(user => {
+    localStorage.uid = user.uid
+    setCurrentUser(user.id)
+  }); 
 
-
+  console.log(currentUser)
 
   return (
-    <div className="App">
+    <div className="App">        
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -44,6 +51,7 @@ function App() {
         >
           Learn React
         </a>
+        <LoginModal />
       </header>
     </div>
   );
